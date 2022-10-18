@@ -211,14 +211,26 @@ const AdminNavbar = ({isLogin}) => {
                 </button> */}
               </div>
               <div className="mt-3 px-2 space-y-1 sm:px-3">
-                {userNavigation.map(item => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-gray-700"
-                  >
-                    {item.name}
-                  </a>
+                {userNavigation &&userNavigation.map(item => (
+                  // <a
+                  //   key={item.name}
+                  //   href={item.href}
+                  //   className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-gray-700"
+                  // >
+                  //   {item.name}
+                  // </a>
+                  <NavLink
+											key={item.name}
+											to={item.href}
+											className={navLinkStyles}
+											aria-current={
+												item.current
+													? 'page'
+													: undefined
+											}
+										>
+											{item.name}
+										</NavLink>
                 ))}
               </div>
             </div>
