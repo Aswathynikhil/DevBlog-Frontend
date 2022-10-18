@@ -211,7 +211,7 @@ const AdminNavbar = ({isLogin}) => {
                 </button> */}
               </div>
               <div className="mt-3 px-2 space-y-1 sm:px-3">
-                {userNavigation &&userNavigation.map(item => (
+                {userNavigation.map(item => (
                   // <a
                   //   key={item.name}
                   //   href={item.href}
