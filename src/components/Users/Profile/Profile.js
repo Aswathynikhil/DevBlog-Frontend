@@ -138,7 +138,7 @@ export default function Profile() {
                                 <DateFormatter date={profile?.createdAt} />{" "}
                               </p>
                               <p className="text-blue-600 mt-2 mb-2">
-                                {profile?.posts.length} Posts{" "}
+                                {profile?.posts?.length} Posts{" "}
                                 {/* {profile?.followers.length} 
                                 
                                 followers{" "} */}
