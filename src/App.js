@@ -102,7 +102,7 @@ function App() {
             element={
               <UserProtectedRoute>
                 <Profile />
-              </UserProtectedRoute>
+               </UserProtectedRoute>
             }
           />
 
@@ -111,7 +111,7 @@ function App() {
             element={
               <UserProtectedRoute>
                 <UploadProfilePhoto />
-              </UserProtectedRoute>
+               </UserProtectedRoute> 
             }
           />
 

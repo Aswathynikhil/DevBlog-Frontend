@@ -79,7 +79,7 @@ export default function PostsList() {
   useEffect(() => {
     dispatch(fetchAllPostAction(""));
     dispatch(fetchSavedPostAction(""));
-    dispatch(searchPostAction(query))
+    // dispatch(searchPostAction(query))
     //load all the posts from server
     // if (userAuth) {
     //   dispatch(fetchAllPostAction(""));
