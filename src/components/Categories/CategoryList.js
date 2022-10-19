@@ -12,7 +12,7 @@ const CategoryList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllCategoriesAction(""));
-  }, [dispatch,category]);
+  }, [dispatch]);
 
   
 
