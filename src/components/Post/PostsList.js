@@ -32,8 +32,8 @@ import AdminSidebar from "../Admin/AdminSidebar";
 // import LazyLoad from 'react-lazyload'
 
 export default function PostsList() {
-  // const [search, setSearch] = useState("");
-  const [query, setQuery] = useState(' ')
+  const [search, setSearch] = useState("");
+  // const [query, setQuery] = useState(' ')
   //dispatch
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ export default function PostsList() {
   useEffect(() => {
     dispatch(fetchAllPostAction(""));
     dispatch(fetchSavedPostAction(""));
-    dispatch(searchPostAction(query))
+    // dispatch(searchPostAction(query))
     //load all the posts from server
     // if (userAuth) {
     //   dispatch(fetchAllPostAction(""));
@@ -88,11 +88,11 @@ export default function PostsList() {
     // else {
     //   navigate("/login");
     // }
-  }, [dispatch, likes, dislikes, saved, deleted, savedPost, reports,query]);
+  }, [dispatch, likes, dislikes, saved, deleted, savedPost, reports]);
 
   // fetch category
   useEffect(() => {
-    dispatch(fetchAllCategoriesAction());
+    dispatch(fetchAllCategoriesAction(""));
   }, [dispatch]);
 
   const tostAlert = (msg) => {
@@ -124,8 +124,11 @@ export default function PostsList() {
             <div className="flex justify-center  ">
               <div className="flex border border-gray-300 rounded">
                 <input
+                  // onChange={(event) => {
+                  //   setQuery(event.target.value.toLowerCase());
+                  // }}
                   onChange={(event) => {
-                    setQuery(event.target.value.toLowerCase());
+                    setSearch(event.target.value);
                   }}
                   type="text"
                   className="block w-96 px-4 py-2 text-black-700 bg-white border rounded-md focus:border-gray-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -216,17 +219,17 @@ export default function PostsList() {
                     </div>
                   ) : (
                     postLists 
-                      // ?.filter((val) => {
-                      //   if (search === "") {
-                      //    return val;
-                      //   } else if (
-                      //     val.title
-                      //       .toLowerCase()
-                      //       .includes(search.toLocaleLowerCase())
-                      //   ) {
-                      //     return val;
-                      //   }
-                      // })
+                      ?.filter((val) => {
+                        if (search === "") {
+                         return val;
+                        } else if (
+                          val.title
+                            .toLowerCase()
+                            .includes(search.toLocaleLowerCase())
+                        ) {
+                          return val;
+                        }
+                      })
                       ?.map((post) => (
                         <div class="mt-5 flex flex-wrap bg-gray-300 -mx-3  lg:mb-6 shadow-md shadow-gray-500 ">
                           <div class=" mb-10 w-full h-41 lg:w-1/4 px-8 py-8 p-20">
