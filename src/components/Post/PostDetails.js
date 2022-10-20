@@ -1,10 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as DOMPurify from "dompurify";
+import Modal from "react-modal";
 // import { toast } from "react-toastify";
 
 import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import { PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  WhatsappIcon,
+} from "react-share";
 import {
   deletePostAction,
   deleteSavedPostAction,
@@ -21,8 +32,24 @@ import CommentsList from "../Comments/CommentsList";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import alert css
 import { FaRegBookmark, FaBookmark, FaFlag, FaRegFlag } from "react-icons/fa";
+import {AiOutlineCloseCircle} from "react-icons/ai";
+import { FiShare2 } from "react-icons/fi";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    padding: '3%',
+  },
+};
+
 
 const PostDetails = () => {
+  const [modalIsOpen,setModalIsOpen] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -70,6 +97,15 @@ const PostDetails = () => {
         },
       ],
     });
+  }
+
+  const shareUrl = `https://devblogapp.netlify.app/posts/${postDetails?._id}`;
+    
+  function openModal() {
+    setModalIsOpen(true);
+  }
+  function closeModal() {
+    setModalIsOpen(false);
   }
 
   useEffect(() => {
@@ -162,6 +198,49 @@ const PostDetails = () => {
                       >
                         <TrashIcon class="h-8 mt-3 text-black-600 " />
                       </button>
+                       
+                      <div>
+                      <button onClick={openModal}>
+                        <FiShare2 className="ml-4 h-8 mt-6 text-black-600 " />
+                      </button>
+
+                      <Modal 
+                      isOpen = {modalIsOpen}
+                      style={customStyles}
+                      >
+                        <h1 className="mb-4 font-serif text-blue-500">Share this Blog In</h1>
+
+                        <FacebookShareButton className="mr-5"
+                          url={shareUrl}
+                        >
+                          <FacebookIcon size={40} round={true} />
+                        </FacebookShareButton>
+
+                        <WhatsappShareButton className="mr-5"
+                          url={shareUrl}
+                         
+                        >
+                          <WhatsappIcon size={40} round={true} />
+                        </WhatsappShareButton>
+                        <TelegramShareButton className="mr-5"
+                          url={shareUrl}
+                          
+                        >
+                          <TelegramIcon size={40} round={true} />
+                        </TelegramShareButton>
+
+                        <LinkedinShareButton className=""
+                          url={shareUrl}
+                        
+                        >
+                          <LinkedinIcon size={40} round={true} />
+                        </LinkedinShareButton>
+                        <button  onClick={closeModal}>
+                          <AiOutlineCloseCircle className="ml-10 item-center "/>
+                        </button>
+                      </Modal>
+                      </div>
+
                     </p>
                   ) : (
                     <div className="flex justify-center p-5">
@@ -222,6 +301,51 @@ const PostDetails = () => {
                       
                     
                     </div>
+
+                    <div>
+                      <button onClick={openModal}>
+                        <FiShare2 className="ml-4 h-8 mt-5 text-black-600 " />
+                      </button>
+
+                      <Modal 
+                      isOpen = {modalIsOpen}
+                      style={customStyles}
+                      >
+                        <h1 className="mb-4 font-serif text-blue-500">Share this Blog In</h1>
+
+                        <FacebookShareButton className="mr-5"
+                          url={shareUrl}
+                      
+                        >
+                          <FacebookIcon size={40} round={true} />
+                        </FacebookShareButton>
+
+                        <WhatsappShareButton className="mr-5"
+                          url={shareUrl}
+                      
+                        >
+                          <WhatsappIcon size={40} round={true} />
+                        </WhatsappShareButton>
+                        <TelegramShareButton className="mr-5"
+                          url={shareUrl}
+                       
+                        >
+                          <TelegramIcon size={40} round={true} />
+                        </TelegramShareButton>
+
+                        <LinkedinShareButton className=""
+                          url={shareUrl}
+                    
+                        >
+                          <LinkedinIcon size={40} round={true} />
+                        </LinkedinShareButton>
+                        <button  onClick={closeModal}>
+                          <AiOutlineCloseCircle className="ml-10 item-center "/>
+                        </button>
+                      </Modal>
+                      </div>
+
+
                   </div>
                   )
                   }
