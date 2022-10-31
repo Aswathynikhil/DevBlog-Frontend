@@ -301,7 +301,7 @@ const Register = () => {
                       onBlur={formik.handleBlur("confirmpassword")}
                       className="w-full pl-4 pr-6 py-4 font-bold placeholder-gray-300 rounded-r-full focus:outline-none"
                       type="password"
-                      placeholder="confirmPassword"
+                      placeholder="ConfirmPassword"
                     />
                   </div>
                   {/* Err msg*/}

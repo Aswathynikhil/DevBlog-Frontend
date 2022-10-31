@@ -318,8 +318,9 @@ const navLinkStyles = ({ isActive,item }) => {
             </div>
               {/* <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col ml-5"> */}
             
-              <div className="pr-3  inline-flex items-center py-2 border border-transparent  text-sm font-medium rounded-md text-white   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500 ml-5 ">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-2 flex flex-col">
+              {/* <div className="pr-3  inline-flex items-center py-2 border border-transparent  text-sm font-medium rounded-md text-white   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500 ml-5 ">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-2 flex flex-col"> */}
+                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-2 flex flex-col">
                 {userNavigation.map(item => (
                   // <a
                   //   key={item.name}
@@ -343,7 +344,7 @@ const navLinkStyles = ({ isActive,item }) => {
                 ))}
                 </div>
               </div>
-              </div>
+              {/* </div> */}
     
           </Disclosure.Panel>
         </>
