@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { useDispatch } from "react-redux";
-import { Link ,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   BellIcon,
   MenuIcon,
@@ -22,6 +22,8 @@ const navigation = [
   { name: "Add Category", href: "/add-category", current: false },
   { name: "Category List", href: "/category-list", current: false },
   { name: "Reported Posts", href: "/reported-list", current: false },
+  { name: "New Post", href: "/create-post", current: false },
+  
 ];
 
 function classNames(...classes) {
@@ -38,6 +40,7 @@ const AdminNavbar = ({isLogin}) => {
   ];
  //logout
  const dispatch = useDispatch();
+
  const navLinkStyles = ({ isActive,item }) => {		
   return (
       isActive?('bg-gray-700 text-white font-semibold px-3 py-2 rounded-md text-md font-medium'):('text-black hover:bg-gray-700 hover:text-white font-semibold px-3 py-2 rounded-md text-md font-medium')							
@@ -89,7 +92,7 @@ const AdminNavbar = ({isLogin}) => {
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   {/* New post */}
-                  <Link
+                  {/* <Link
                     to="/create-post"
                     type="button"
                     className="relative mr-4 inline-flex items-center px-4 py-2 border border-transparent shadow-lg shadow-gray-300 text-sm font-medium rounded-md text-white bg-gray-400  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500"
@@ -99,7 +102,7 @@ const AdminNavbar = ({isLogin}) => {
                       aria-hidden="true"
                     />
                     <span>New Post</span>
-                  </Link>
+                  </Link> */}
                   {/* Logout */}
                   <button
                   onClick={()=>dispatch(logoutAction())}
@@ -172,7 +175,7 @@ const AdminNavbar = ({isLogin}) => {
             </div>
           </div>
 
-          <Disclosure.Panel className="md:hidden">
+          <Disclosure.Panel className="md:hidden lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navigation.map(item => (
                 <Link
@@ -215,7 +218,7 @@ const AdminNavbar = ({isLogin}) => {
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button> */}
               </div>
-              <div className="mt-3 px-2 space-y-1 sm:px-3">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-2 flex flex-col">
                 {userNavigation.map(item => (
                   // <a
                   //   key={item.name}
@@ -225,17 +228,17 @@ const AdminNavbar = ({isLogin}) => {
                   //   {item.name}
                   // </a>
                   <NavLink
-											key={item.name}
-											to={item.href}
-											className={navLinkStyles}
-											aria-current={
-												item.current
-													? 'page'
-													: undefined
-											}
-										>
-											{item.name}
-										</NavLink>
+                  key={item.name}
+                  to={item.href}
+                  className={navLinkStyles}
+                  aria-current={
+                    item.current
+                      ? 'page'
+                      : undefined
+                  }
+                >
+                  {item.name}
+                </NavLink>
                 ))}
               </div>
             </div>
