@@ -158,7 +158,7 @@ export default function Profile() {
                                     setDisplayData("Following Users");
                                     setNumber(profile?.following?.length);
                                   }}
-                                  className="cursor-pointer  text-blue-600 mt-2 mb-2 py-1     "
+                                  className="cursor-pointer  text-blue-600 mt-2 mb-2 py-1  ml-3   "
                                 >
                                   {profile?.following?.length} Following
                                 </button>
