@@ -35,12 +35,12 @@ const PrivateNavbar = ({ isLogin }) => {
   ];
 //logout
 const dispatch = useDispatch();
+
 const navLinkStyles = ({ isActive,item }) => {		
   return (
-      isActive?('bg-gray-500 text-white font-semibold px-2 py-2 rounded-md text-md font-medium'):('text-white bg-gray-400 hover:text-white font-semibold px-2 py-2 rounded-md text-md font-medium')							
+      isActive?('bg-gray-700 text-white font-semibold px-3 py-2 rounded-md text-md font-medium'):('text-black hover:bg-gray-700 hover:text-white font-semibold px-3 py-2 rounded-md text-md font-medium')							
   )
 }
-
   return (
     <Disclosure as="nav" className="bg-white shadow-md shadow-gray-300 sticky top-0  z-50">
       {({ open }) => (

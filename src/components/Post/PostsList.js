@@ -156,7 +156,7 @@ export default function PostsList() {
                             onClick={() =>
                               dispatch(fetchAllPostAction(category?.title))
                             }
-                            className="block cursor-pointer py-2 px-3 mb-4 rounded shadow-md shadow-gray-500 text-black-500 font-bold font-serif bg-white"
+                            className="block cursor-pointer py-2 px-3 mb-4 rounded shadow-md shadow-gray-500 text-black-500 font-bold font-serif bg-white text-center"
                           >
                             {category?.title}
                           </p>
