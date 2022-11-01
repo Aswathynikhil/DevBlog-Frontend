@@ -26,7 +26,6 @@ import UpdatePassword from "./components/Users/PasswordManagement/UpdatePassword
 import ResetPassword from "./components/Users/PasswordManagement/ResetPassword";
 import ResetPasswordForm from "./components/Users/PasswordManagement/ResetPasswordForm";
 import PageNotFound from "./components/PageNotFound";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import SavedPosts from "./components/Post/SavedPosts";
 import ReportedPost from "./components/Post/ReportedPost";
 import AdminDashboard from "./components/Admin/AdminDashboard";
